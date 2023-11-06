@@ -1,0 +1,99 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    background-color: #F4BF96;
+    font-family: Inter;
+}
+
+.game-logo{
+    height: 40px;
+    width: 40px;
+}
+
+#logo{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 40px;
+}
+
+#logo p{
+    font-weight: 700;
+}
+
+#top-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#rules{
+    margin-right: 40px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#rules:hover{
+    background-color: black;
+    color: #FCF5ED;
+}
+
+#flex{
+    display: flex;
+}
+
+#text{
+    margin-left: 20px;
+    width: fit-content;
+}
+
+#text h1{
+    font-weight: 700;
+    font-size: 85px;
+    line-height: 100px;
+}
+
+#text p{
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.start-now{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    width: 200px;
+    height: 80px;
+    font-size: 20px;
+    justify-content: center;
+    color: #FCF5ED;
+    border-radius: 10px;
+}
+
+.start-now:hover{
+    box-shadow: 10px 10px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+#bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: fit-content;
+}
+
+
+#home-logo{
+    display: flex;
+    justify-content: center;
+    margin-left: 300px;
+    margin-top: 200px;
+}
+
+#home-logo img{
+    height: 300px;
+    width: 300px;
+}
+

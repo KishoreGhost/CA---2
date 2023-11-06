@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="top-container">
+        <div id="logo">
+            <img src="./assets/game-logo.png" alt="" class="game-logo">
+            <p>Quizix</p>
+        </div>
+        <u id="rules">Rules</u>
+    </div>
+    <div id="flex">
+        <div id="text">
+            <h1>Where the Fun <br> Begins!</h1>
+            <p>A fun place to test your knowledge</p>
+            <div id="bottom">
+                <div class="start-now">Get Started --></div>
+            </div>
+        </div>
+        
+        <div id="home-logo">
+            <img class="home" src="./assets/home-logo.png" alt="">
+        </div>
+    </div>
+</body>
+<script>
+    var getStarted = document.querySelector("#bottom")
+    getStarted.addEventListener("click", () =>{
+        window.location.href = "./game.html"
+    })
+</script>
+</html>
