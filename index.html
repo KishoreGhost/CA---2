@@ -3,35 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Game</title>
+    <title>Quizix</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="top-container">
-        <div id="logo">
-            <img src="./assets/game-logo.png" alt="" class="game-logo">
-            <p>Quizix</p>
+    <div id="blur">
+        <div id="top-container">
+            <div id="logo">
+                <img src="./assets/game-logo.png" alt="" class="game-logo">
+                <p>Quizix</p>
+            </div>
+            <u id="rules">Rules</u>
         </div>
-        <u id="rules">Rules</u>
-    </div>
-    <div id="flex">
-        <div id="text">
-            <h1>Where the Fun <br> Begins!</h1>
-            <p>A fun place to test your knowledge</p>
-            <div id="bottom">
-                <div class="start-now">Get Started --></div>
+        <div id="flex">
+            <div id="text">
+                <h1 class="fun">Where the Fun <br> Begins!</h1>
+                <p>A fun place to test your knowledge</p>
+                <div id="bottom">
+                    <div class="start-now">Get Started ></div>
+                </div>
+            </div>
+            
+            <div id="home-logo">
+                <img class="home" src="./assets/home-logo.png" alt="">
             </div>
         </div>
-        
-        <div id="home-logo">
-            <img class="home" src="./assets/home-logo.png" alt="">
+    </div>
+    <div id="instructions">
+        <div class="heading">
+            <h3><u>Instructions</u></h3>
+        </div>
+        <div>  
+            <ul id="rule-content">
+                <li class="content">
+                    Quizx is a fun game, where the player is
+                    asked to<br> answer a bunch of general
+                    knowledge question to<br> test their
+                    knowledge.
+                </li><br>
+                <li class="content">
+                    The player can choose between various<br>
+                    difficulties.
+                </li><br>  
+                <li class="content">
+                    Each question HAS a time limit of 10
+                    seconds,<br> by then the player should answer
+                    the<br>question.
+                </li><br>
+                <li class="content">
+                    Lastly the score will be displayed based on<br> 
+                    the number of correct answer the players<br> 
+                    has given.
+                </li>
+            </ul>
+            
         </div>
     </div>
+
 </body>
 <script>
     var getStarted = document.querySelector("#bottom")
     getStarted.addEventListener("click", () =>{
-        window.location.href = "./game.html"
+        window.location.href = "./info.html"
     })
+
+    var rules = document.querySelector("#rules");
+    var instructions = document.querySelector("#instructions");
+    var forBlur = document.querySelector("#blur")
+
+    instructions.style.display = "none";
+    
+    
+
+    rules.addEventListener("mouseenter", () => {
+        instructions.style.display = "block";
+        forBlur.style.filter = "blur(80px)";
+    });
+
+    rules.addEventListener("mouseout", () => {
+        instructions.style.display = "none";
+        forBlur.style.filter = "blur(0px)"
+    });
 </script>
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizx</title>
+    <link rel="stylesheet" href="./info.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="info-container">
+        <div id="info-heading">
+            <img src="./assets/back-arrow.png" alt="" class="back-arrow"> 
+            <div class="heading">
+                <h2>Enter your Details</h2>
+            </div>
+        </div>
+        <div id="info">
+            <div id="name">
+                <p class="name">Enter your name:</p>
+                <input type="text" placeholder="eg. John" class="input">
+            </div>
+            <div id="nickname">
+                <p class="name">Nickname:</p>
+                <input type="text" placeholder="eg. Scout" class="input">
+            </div>
+            <div id="next-button">
+                Next-->
+            </div>
+        </div>
+    </div>
+    <div id="difficulty">
+        <div id="info-heading">
+            <img src="./assets/back-arrow1.png" alt="" class="back-arrow1"> 
+            <div class="heading">
+                <h2>Choose your Difficulty</h2>
+            </div>
+        </div>
+        <div id="options">
+            <div class="hi">Beginner</div>
+            <div class="hi">Intermediate</div>
+            <div class="hi">Advanced</div>
+        </div>
+
+    </div>
+</body>
+<script>
+
+    var infoDiv = document.querySelector("#info-container")
+    var diffDiv = document.querySelector("#difficulty")
+    var backArrow = document.querySelector(".back-arrow")
+    var backArrow1 = document.querySelector(".back-arrow1")
+    var nextButton = document.querySelector("#next-button")
+    var diffOptions = document.querySelector("#options")
+
+    backArrow.addEventListener("click", ()=>{
+        window.location.href = "./index.html"
+    })
+
+    nextButton.addEventListener("click", ()=>{
+        infoDiv.style.visibility = "hidden"
+        diffDiv.style.visibility = "visible"
+    })
+
+    backArrow1.addEventListener("click", ()=>{
+        diffDiv.style.visibility = "hidden"
+        infoDiv.style.visibility = "visible"
+    })
+
+    diffOptions.addEventListener("click", ()=>{
+        window.location.href = "./game.html"
+    })
+</script>
+</html>
