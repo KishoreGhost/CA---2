@@ -10,20 +10,25 @@
     <div id="quiz-container">
         <div class="container-top">
             <!-- <p id="score">Score: <span id="score-board"></span></p> -->
-            <div id="questionNo">/<p id="totalQuestions"></p></div>
-            <div id="time">Time left: <p id="timer"></p></div>
+            <div id="questionNo">/</div>
+            <div id="timer"></div>
         </div>
         <div id="question">
-            <p class="question-append">Question</p>
+            <div class="question-append">Question</div>
         </div>
         <div class="options">
-            <div class="option" onclick="checkAnswer(this)"></div>
-            <div class="option" onclick="checkAnswer(this)"></div>
-            <div class="option" onclick="checkAnswer(this)"></div>
-            <div class="option" onclick="checkAnswer(this)"></div>
+            <div class="option" onclick="checkAnswer(0)">Option 1</div>
+            <div class="option" onclick="checkAnswer(1)">Option 2</div>
+            <div class="option" onclick="checkAnswer(2)">Option 3</div>
+            <div class="option" onclick="checkAnswer(3)">Option 4</div>
         </div>
+    </div>
+    <div id="game-over-container">
+        <h1>Game Over!</h1>
+        <div id="score"></div>
+        <p id="compliment"></p>
     </div>
     
 </body>
-<script src="./app.js"></script>
 </html>
+<script src="./app.js"></script>

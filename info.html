@@ -37,13 +37,15 @@
             </div>
         </div>
         <div id="options">
-            <div class="hi">Beginner</div>
-            <div class="hi">Intermediate</div>
-            <div class="hi">Advanced</div>
+            <div class="hi" id="easy-button">Beginner</div>
+            <div class="hi" id="medium-button">Intermediate</div>
+            <div class="hi" id="hard-button">Advanced</div>
         </div>
 
     </div>
 </body>
+</html>
+
 <script>
 
     var infoDiv = document.querySelector("#info-container")
@@ -52,6 +54,12 @@
     var backArrow1 = document.querySelector(".back-arrow1")
     var nextButton = document.querySelector("#next-button")
     var diffOptions = document.querySelector("#options")
+    var easyDiff = document.querySelector("#easy-button")
+    var mediumDiff = document.querySelector("#medium-button")
+    var hardDiff = document.querySelector("#hard-button")
+    
+    var input = document.getElementsByClassName("input")
+    var input1 = document.getElementsByClassName("input1")
 
     backArrow.addEventListener("click", ()=>{
         window.location.href = "./index.html"
@@ -67,8 +75,22 @@
         infoDiv.style.visibility = "visible"
     })
 
-    diffOptions.addEventListener("click", ()=>{
-        window.location.href = "./game.html"
+    easyDiff.addEventListener("click", ()=>{
+        localStorage.setItem("level","easy")
+        window.location.href = "./game.html?difficulty='easy'"
     })
+
+    mediumDiff.addEventListener("click", ()=>{
+        localStorage.setItem("level","medium")
+        window.location.href = "./game.html?difficulty='medium'"
+    })
+
+    hardDiff.addEventListener("click", ()=>{
+        localStorage.setItem("level","hard")
+        window.location.href = "./game.html?difficulty='hard'"
+    })
+
+    localStorage.getItem("input","name")
+    
+
 </script>
-</html>
