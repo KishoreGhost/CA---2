@@ -7,7 +7,6 @@ var compliments = document.querySelector("#compliment")
 var quizContainer = document.querySelector("#quiz-container")
 var gameOver = document.querySelector("#game-over-container")
 
-
 const totalQuestions = 10;
 let currentDifficulty = "";
 let currentQuestion = 0;
@@ -352,11 +351,6 @@ const questions = {
             answer: "H2O",
         },
         {
-            question: "Which English mathematician is known for his contributions to computer science and code-breaking during World War II?",
-            options: ["Alan Turing", "John von Neumann", "George Boole", "Ada Lovelace"],
-            answer: "Alan Turing",
-        },
-        {
             question: "What is the name of the densest known substance in the universe found in neutron stars?",
             options: ["Black Hole", "Dark Matter", "Quark-Gluon Plasma", "Neutronium"],
             answer: "Neutronium",
@@ -385,11 +379,6 @@ const questions = {
             question: "Which gas is responsible for the distinctive color of a gas discharge lamp, such as neon lights?",
             options: ["Argon", "Xenon", "Krypton", "Neon"],
             answer: "Neon",
-        },
-        {
-            question: "Who is known for his work on the general theory of relativity and the photoelectric effect, which led to the development of quantum mechanics?",
-            options: ["Werner Heisenberg", "Erwin Schrödinger", "Max Planck", "Albert Einstein"],
-            answer: "Albert Einstein",
         },
         {
             question: "What is the largest artery in the human body?",
@@ -457,8 +446,9 @@ const questions = {
             answer: "1783"
         },
     ]       
-    
 }
+
+
 
 function chosenDiff(difficulty){
     if (difficulty === "easy"){
@@ -473,12 +463,15 @@ function chosenDiff(difficulty){
     return "hard"
     }
 }
-
+const backgroundMusic = new Audio('background.mp3')
 function startQuiz(difficulty) {    
     currentDifficulty = chosenDiff(difficulty)
     randomQuestions(questions[currentDifficulty]); 
     currentQuestion = 0
     displayQuestion();
+    backgroundMusic.play()
+    backgroundMusic.volume = 1
+    
 }
 
 function randomQuestions(array) {
@@ -500,7 +493,6 @@ function displayQuestion() {
         for (let i = 0; i < optionsContainer.length; i++) {
             optionsContainer[i].innerHTML = questionData.options[i];
         }
-
         startTimer();
         currentQuestion++;
     } else {
@@ -530,31 +522,39 @@ function checkAnswer(selectedOption) {
         const questionData = questions[currentDifficulty][currentQuestion - 1];
         if (selectedText === questionData.answer) {
             score++;
-        }       
+            console.log(score)
+        }      
     }
     clearInterval(timerInterval); 
 
     if (currentQuestion < totalQuestions) {
-        setTimeout(displayQuestion, 1000); 
+        setTimeout(displayQuestion, 100); 
     }
     else {
         endGame(); 
     }
 }
 
+var perfectScore = ["Perfect! You got all questions right!", "You are officially a nerd🤓", "You've reached the pinnacle of quiz success you're exceptional!", "Your perfect score is a testament to your incredible knowledge.", "Good job! Here is a cookie🍪"]
+var mediumScore = ["Good job! You did well.","Your quiz performance is really impressive. Keep up the excellent work!", "Your quiz results are impressive, and your knowledge shines through with these scores.", "Keep up the great work, and continue enjoying your quiz games!"]
+var lowScore = ["Keep practicing. You can do better!" , "You gave it your best shot, and that's what counts." ,"You're on the path to improvement, and that's admirable.", "Keep up the effort, and you'll surely see progress in no time.", "Every quiz is a learning opportunity, and you're making the most of it."]
+var randomPerfect = Math.floor(Math.random()*perfectScore.length)
+var randomMedium = Math.floor(Math.random()*mediumScore.length)
+var randomLow = Math.floor(Math.random()*lowScore.length)
+
+var userName = localStorage.getItem("input")
 function endGame() {
     clearInterval(timerInterval);
     quizContainer.style.visibility = "hidden"
     gameOver.style.visibility = "visible"
     if (score === totalQuestions) {
-        compliments.innerHTML = "Perfect! You got all questions right!" || "You are officially a nerd🤓" || "You've reached the pinnacle of quiz success you're exceptional!" || "Your perfect score is a testament to your incredible knowledge." || "Good job! Here is a cookie🍪"
+        compliments.innerHTML = perfectScore[randomPerfect]
     } else if (score >= totalQuestions / 2) {
-        compliments.innerHTML = "Good job! You did well." || "Your quiz performance is really impressive. Keep up the excellent work!" || "Your quiz results are impressive, and your knowledge shines through with these scores." || "Keep up the great work, and continue enjoying your quiz games!"
+        compliments.innerHTML = mediumScore[randomMedium]
     } else {
-        compliments.innerHTML = "Keep practicing. You can do better!" || "You gave it your best shot, and that's what counts." || "You're on the path to improvement, and that's admirable." || "Keep up the effort, and you'll surely see progress in no time." || "Every quiz is a learning opportunity, and you're making the most of it."
+        compliments.innerHTML = lowScore[randomLow]
     }
-    scoreDisplay.textContent =  `have scored: ${score}/${totalQuestions}`;
-    questionContainer.innerHTML = "";
+    scoreDisplay.textContent =  `You have scored: ${score}/${totalQuestions}`;
     for (let i = 0; i < optionsContainer.length; i++) {
         optionsContainer[i].style.display = "none";
     }
@@ -578,6 +578,19 @@ document.getElementById("hard-button").addEventListener("click", () => {
     startQuiz("hard");
 });
 
+var githubImg = document.querySelector(".github")
+var linkedinImg = document.querySelector(".linkedin")
+var playAgain = document.getElementById("play-again")
 
+githubImg.onclick = () =>{
+    window.location.href = "https://github.com/KishoreGhost"
+}
 
+linkedinImg.onclick = () =>{
+    window.location.href = ""
+}
 
+playAgain.addEventListener("click",()=>{
+    window.location.reload()
+    console.log("hello")
+})

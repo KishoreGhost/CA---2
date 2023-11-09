@@ -1,18 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+:root{
+    --hue: 100;
+    --saturationBackground: 100%;
+    --foregroundcolor: hsl(var(--hue), 100%, 50%);
+    --backgroundcolor: hsl(var(--hue), 63%, 83%);
+}
 
 body {
+    transition: 0.04s;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #f3f9ff, #cfe6ff, #acd1ff, #8cbdff, #6da7ff);
+    /* background: linear-gradient(to bottom, #f3f9ff, #cfe6ff, #acd1ff, #8cbdff, #6da7ff); */
     background-size: 100% 100%; 
     font-family: 'K2D', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-color: var(--backgroundcolor);
 }
 
 #info-container {
+    transition: 0s;
     box-shadow: 10px 10px 4px 10px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
     height: 590px;
@@ -94,7 +103,6 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(to bottom, #f3f9ff, #cfe6ff, #acd1ff, #8cbdff, #6da7ff);
     font-family: 'Inter', sans-serif;
     position: fixed;
     margin-left: 10px;
@@ -110,6 +118,7 @@ input::placeholder {
 }
 
 .heading {
+    cursor: default;
     margin-left: 100px;
     font-size: 25px;
     font-weight: 700;
@@ -123,6 +132,10 @@ h2{
     display: flex;
     align-items: center;
     margin-right: 20px;
+}
+
+.name{
+    cursor: default;
 }
 
 .hi {
@@ -141,4 +154,40 @@ h2{
 .hi:hover {
     background-color: #000;
     color: #fff;
+}
+
+@media screen and (max-width: 425px) {
+    #info-container, #difficulty {
+        width: 90%;
+    }
+
+    .input, .input1 {
+        width: 70%;
+    }
+
+    .name{
+        font-size: medium;
+        font-weight: 700;
+    }
+
+    #next-button, .hi {
+        width: 40%;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #next-button {
+        margin-top: 40px;
+    }
+
+    .hi{
+        width: fit-content;
+        background-color: black;
+        color: #fff;
+    }
+
+    h2{
+        font-size: larger;
+    }
 }

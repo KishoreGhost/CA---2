@@ -1,20 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+
 body{
     margin: 0%;
     padding: 0%;
+    font-family: 'K2D', sans-serif;
     background-image: linear-gradient(to bottom, #f3f9ff, #cfe6ff, #acd1ff, #8cbdff, #6da7ff);
-    background-size: cover;
+    background-size: 100% 100%;
     box-sizing: border-box;
     background-repeat: no-repeat;
-    font-family: 'Inter', sans-serif;
 }
 
-/* CSS for index.html */
 .game-logo{
     height: 40px;
     width: 40px;
 }
 
 #logo{
+    margin-left: 30px;
+    cursor: default;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -46,6 +49,7 @@ body{
 
 #flex{
     display: flex;
+    margin-left: 30px;
 }
 
 #text{
@@ -75,10 +79,15 @@ body{
     justify-content: center;
     color: #FCF5ED;
     border-radius: 10px;
+    font-weight: bold;
+    border-bottom: 4px solid white;
+    transition: 0.3s;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.4);
 }
 
 .start-now:hover{
-    box-shadow: 10px 10px 4px 10px rgba(0, 0, 0, 0.25);
+    border-bottom-width: 0;
+    transform: translateY(5px);
 }
 
 #bottom{
@@ -130,4 +139,67 @@ body{
     line-height: 36px;   
 }
 
-/* CSS for info.html */
+@media screen and (max-width: 425px) {
+    body {
+        height: fit-content;
+        background-size: cover;
+    }
+
+    #top-container {
+        /* flex-direction: column; */
+        text-align: center;
+    }
+
+    #rules {
+        margin: 0;
+    }
+
+    #flex {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+    }
+
+    #text {
+        margin: 20px 0;
+    }
+
+    .fun {
+        font-size: 40px;
+        line-height: 70px;
+    }
+
+    #bottom {
+        flex-direction: column;
+    }
+
+    #home-logo {
+        margin: 20px 0;
+    }
+
+    .home{
+        visibility: hidden;
+    }
+
+    #instructions {
+        left: 5%;
+        width: 90%;
+        height: auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    #rule-content {
+        left: 0;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    #blur {
+        position: relative;
+    }
+}

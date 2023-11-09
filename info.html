@@ -18,11 +18,11 @@
         <div id="info">
             <div id="name">
                 <p class="name">Enter your name:</p>
-                <input type="text" placeholder="eg. John" class="input">
+                <input type="text" placeholder="eg. John" class="input" required>
             </div>
             <div id="nickname">
                 <p class="name">Nickname:</p>
-                <input type="text" placeholder="eg. Scout" class="input">
+                <input type="text" placeholder="eg. Scout" class="input1" required>
             </div>
             <div id="next-button">
                 Next-->
@@ -41,13 +41,12 @@
             <div class="hi" id="medium-button">Intermediate</div>
             <div class="hi" id="hard-button">Advanced</div>
         </div>
-
     </div>
 </body>
 </html>
 
 <script>
-
+    
     var infoDiv = document.querySelector("#info-container")
     var diffDiv = document.querySelector("#difficulty")
     var backArrow = document.querySelector(".back-arrow")
@@ -58,18 +57,22 @@
     var mediumDiff = document.querySelector("#medium-button")
     var hardDiff = document.querySelector("#hard-button")
     
-    var input = document.getElementsByClassName("input")
-    var input1 = document.getElementsByClassName("input1")
+    var input = document.querySelector(".input").value
+    var input1 = document.querySelector(".input1")
 
     backArrow.addEventListener("click", ()=>{
         window.location.href = "./index.html"
     })
 
-    nextButton.addEventListener("click", ()=>{
-        infoDiv.style.visibility = "hidden"
-        diffDiv.style.visibility = "visible"
-    })
-
+    nextButton.addEventListener("click", () => {
+    if (input.value == "" || input1.value === "") {
+        alert("You can't escape without giving us our name(●'◡'●)");
+    } else {
+        infoDiv.style.visibility = "hidden";
+        diffDiv.style.visibility = "visible";
+    }
+    });
+    
     backArrow1.addEventListener("click", ()=>{
         diffDiv.style.visibility = "hidden"
         infoDiv.style.visibility = "visible"
@@ -89,8 +92,10 @@
         localStorage.setItem("level","hard")
         window.location.href = "./game.html?difficulty='hard'"
     })
-
-    localStorage.getItem("input","name")
     
-
+    const styleVar = document.documentElement.style;
+    let timerInterval = setInterval(() => {
+    let rand = Math.floor(Math.random() * 360);
+    styleVar.setProperty('--hue', rand);
+}, 3000);
 </script>
