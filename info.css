@@ -71,6 +71,7 @@ body {
     width: 600px;
     border-radius: 20px;
     font-size: 24px;
+    text-align: center;
 }
 
 input::placeholder {
@@ -177,7 +178,8 @@ h2{
     }
 
     .input, .input1 {
-        width: 70%;
+        width: 20%;
+        text-align: center;
     }
 
     .name{

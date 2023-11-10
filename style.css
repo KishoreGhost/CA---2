@@ -8,6 +8,7 @@ body{
     background-size: cover;
     box-sizing: border-box;
     background-repeat: no-repeat;
+    max-height: 100vh;
 }
 
 .game-logo{
@@ -25,14 +26,14 @@ body{
 }
 
 #logo p{
-    font-weight: 700;
+    font-weight: 600;
 }
 
 #top-container{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 40px;
+    margin-top: 3%;
 }
 
 #rules{
@@ -65,7 +66,7 @@ body{
 }
 
 #text p{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 400;
 }
 
@@ -105,9 +106,9 @@ body{
     margin-top: 285px;
 }
 
-#home-logo img{
-    height: 300px;
-    width: 300px;
+.home{
+    height: 100%;
+    width: 75%;
 }
 
 #instructions{
