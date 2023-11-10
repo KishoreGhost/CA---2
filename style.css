@@ -5,7 +5,7 @@ body{
     padding: 0%;
     font-family: 'K2D', sans-serif;
     background-image: linear-gradient(to bottom, #f3f9ff, #cfe6ff, #acd1ff, #8cbdff, #6da7ff);
-    background-size: 100% 100%;
+    background-size: cover;
     box-sizing: border-box;
     background-repeat: no-repeat;
 }
@@ -53,6 +53,7 @@ body{
 }
 
 #text{
+    cursor: default;
     margin-left: 20px;
     width: fit-content;
 }
@@ -101,7 +102,7 @@ body{
     display: flex;
     justify-content: center;
     margin-left: 350px;
-    margin-top: 250px;
+    margin-top: 285px;
 }
 
 #home-logo img{
@@ -142,11 +143,10 @@ body{
 @media screen and (max-width: 425px) {
     body {
         height: fit-content;
-        background-size: cover;
+        background-size: 100% 70%;
     }
 
     #top-container {
-        /* flex-direction: column; */
         text-align: center;
     }
 

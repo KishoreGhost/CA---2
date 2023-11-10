@@ -8,13 +8,15 @@
 </head>
 <body>
     <div id="blur">
+
         <div id="top-container">
             <div id="logo">
                 <img src="./assets/game-logo.png" alt="" class="game-logo">
-                <p>Quizix</p>
+                <p>Quizx</p>
             </div>
             <u id="rules"><img src="./assets/alert-circle.svg" alt=""></u>
         </div>
+
         <div id="flex">
             <div id="text">
                 <h1 class="fun">Where the Fun <br> Begins!</h1>
@@ -23,22 +25,25 @@
                     <div class="start-now">Get Started ></div>
                 </div>
             </div>
-            
             <div id="home-logo">
                 <img class="home" src="./assets/home-logo.png" alt="">
             </div>
         </div>
+
     </div>
+
     <div id="instructions">
+
         <div class="heading">
             <h3><u>Instructions</u></h3>
         </div>
-        <div>  
+
+        <div id="rules-and-regulations">  
             <ul id="rule-content">
                 <li class="content">
                     Quizx is a fun game, where the player is
-                    asked to<br> answer a bunch of general
-                    knowledge question to<br> test their
+                    asked to <br> answer a bunch of general
+                    knowledge question to <br> test their
                     knowledge.
                 </li><br>
                 <li class="content">
@@ -48,7 +53,7 @@
                 <li class="content">
                     Each question HAS a time limit of 10
                     seconds,<br> by then the player should answer
-                    the<br>question.
+                    the <br> question.
                 </li><br>
                 <li class="content">
                     Lastly the score will be displayed based on<br> 
@@ -56,25 +61,26 @@
                     has given.
                 </li>
             </ul>
-            
         </div>
+
     </div>
 
 </body>
 <script>
+   
+//Getting all the element from HTML to make the page dynamic
     var getStarted = document.querySelector("#bottom")
-    getStarted.addEventListener("click", () =>{
-        window.location.href = "./info.html"
-    })
-
     var rules = document.querySelector("#rules");
     var instructions = document.querySelector("#instructions");
     var forBlur = document.querySelector("#blur")
 
-    instructions.style.display = "none";
-    
-    
+//Redirects to info.html on clicking
+    getStarted.addEventListener("click", () =>{
+        window.location.href = "./info.html"
+    })
 
+//Shows the instructions on how to play the game while hovering over the info button
+    instructions.style.display = "none";
     rules.addEventListener("mouseenter", () => {
         instructions.style.display = "block";
         forBlur.style.filter = "blur(80px)";
@@ -84,5 +90,6 @@
         instructions.style.display = "none";
         forBlur.style.filter = "blur(0px)"
     });
+    
 </script>
 </html>

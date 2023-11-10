@@ -11,7 +11,7 @@ Welcome to Quizx Test your knowledge across various difficulty levels and topics
 - Multiple difficulty levels: Easy, Medium, Hard
 - Randomly shuffled questions for each game
 - Timer for each question
-- Background music during gameplay
+- Background music during Game-play
 - End-of-game compliments based on performance
 - Responsive design for various devices
 

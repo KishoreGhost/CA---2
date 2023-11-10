@@ -60,6 +60,8 @@
     var input = document.querySelector(".input").value
     var input1 = document.querySelector(".input1")
 
+    localStorage.setItem("input","name")
+
     backArrow.addEventListener("click", ()=>{
         window.location.href = "./index.html"
     })
@@ -98,4 +100,13 @@
     let rand = Math.floor(Math.random() * 360);
     styleVar.setProperty('--hue', rand);
 }, 3000);
+
+const backgroundMusic = new Audio("./assets/background.mp3")
+window.onload(play())
+
+function play() {
+    backgroundMusic.play()
+    backgroundMusic.loop = true
+    backgroundMusic.volume = 0.5
+}
 </script>

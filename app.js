@@ -1,3 +1,4 @@
+//Getting all the elements from HTML
 var questionNumber = document.querySelector("#questionNo");
 var timer = document.querySelector("#timer");
 var optionsContainer = document.querySelectorAll(".option");
@@ -6,6 +7,16 @@ var scoreDisplay = document.querySelector("#score")
 var compliments = document.querySelector("#compliment")
 var quizContainer = document.querySelector("#quiz-container")
 var gameOver = document.querySelector("#game-over-container")
+var githubImg = document.querySelector("#github")
+var linkedinImg = document.querySelector(".linkedin")
+var playAgain = document.getElementById("play-again")
+
+//Style for changing background
+const styleVar = document.documentElement.style;
+    let intervalTime = setInterval(() => {
+    let rand = Math.floor(Math.random() * 360);
+    styleVar.setProperty('--hue', rand);
+}, 3000);
 
 const totalQuestions = 10;
 let currentDifficulty = "";
@@ -14,6 +25,7 @@ let score = 0;
 let timeLeft = 10;
 let timerInterval; 
 
+//Variable to store the questions in form of list inside an object
 const questions = {
     easy: [
         {
@@ -447,9 +459,30 @@ const questions = {
         },
     ]       
 }
+//For game audio
+const gameMusic = new Audio("./assets/game-audio.mp3")
+function playMusic(){
+    gameMusic.play()
+    gameMusic.loop = true
+    gameMusic.volume = 1
+}
+document.addEventListener('load',playMusic())
 
+//To redirect to according places
+playAgain.addEventListener("click", () => {
+    console.log("Play again button clicked!");
+    window.location.href = "./info.html";
+});
 
+githubImg.addEventListener("click",() =>{
+    window.open("https://github.com/KishoreGhost", "_blank")
+})
 
+linkedinImg.onclick = () =>{
+    window.open("https://www.linkedin.com/in/kishore-kumar-d-a4b49927a/", "_blank")
+}
+
+//Function to check what difficulty the user has selected and display the questions accordingly 
 function chosenDiff(difficulty){
     if (difficulty === "easy"){
     return "easy"
@@ -463,17 +496,16 @@ function chosenDiff(difficulty){
     return "hard"
     }
 }
-const backgroundMusic = new Audio('background.mp3')
+
+//Function to initialize the start the game
 function startQuiz(difficulty) {    
     currentDifficulty = chosenDiff(difficulty)
     randomQuestions(questions[currentDifficulty]); 
     currentQuestion = 0
     displayQuestion();
-    backgroundMusic.play()
-    backgroundMusic.volume = 1
-    
 }
 
+//Function to generate random Questions from the above variable
 function randomQuestions(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -481,6 +513,7 @@ function randomQuestions(array) {
     }
 }
 
+// Function to show the questions and options for the game
 function displayQuestion() {
     if (currentQuestion < totalQuestions) {
         const questionData = questions[currentDifficulty][currentQuestion];
@@ -501,6 +534,8 @@ function displayQuestion() {
     }
 }
 
+
+// Function for the timer
 function startTimer() {
     timeLeft = 10;
     clearInterval(timerInterval);
@@ -516,6 +551,7 @@ function startTimer() {
     }, 1000);
 }
 
+// Function to check the answer and display the score at the end
 function checkAnswer(selectedOption) {
     if(selectedOption > 0){
         const selectedText = optionsContainer[selectedOption].textContent;
@@ -535,6 +571,7 @@ function checkAnswer(selectedOption) {
     }
 }
 
+// Variables for giving compliments according to the score
 var perfectScore = ["Perfect! You got all questions right!", "You are officially a nerd🤓", "You've reached the pinnacle of quiz success you're exceptional!", "Your perfect score is a testament to your incredible knowledge.", "Good job! Here is a cookie🍪"]
 var mediumScore = ["Good job! You did well.","Your quiz performance is really impressive. Keep up the excellent work!", "Your quiz results are impressive, and your knowledge shines through with these scores.", "Keep up the great work, and continue enjoying your quiz games!"]
 var lowScore = ["Keep practicing. You can do better!" , "You gave it your best shot, and that's what counts." ,"You're on the path to improvement, and that's admirable.", "Keep up the effort, and you'll surely see progress in no time.", "Every quiz is a learning opportunity, and you're making the most of it."]
@@ -543,6 +580,8 @@ var randomMedium = Math.floor(Math.random()*mediumScore.length)
 var randomLow = Math.floor(Math.random()*lowScore.length)
 
 var userName = localStorage.getItem("input")
+
+// Function to finish the game after certain conditions
 function endGame() {
     clearInterval(timerInterval);
     quizContainer.style.visibility = "hidden"
@@ -560,37 +599,22 @@ function endGame() {
     }
 }
 
+// Calling the startQuiz function according to the difficulty chosen in the info.html 
 var difficulty = localStorage.getItem("level")
 startQuiz(difficulty)
 document.getElementById("easy-button").addEventListener("click", () => {
     questions.options = "easy"
-    startQuiz("easy");
 });
 
 document.getElementById("medium-button").addEventListener("click", () => {
     questions.options = "medium"
-    startQuiz("medium");
-
 });
 
 document.getElementById("hard-button").addEventListener("click", () => {
     questions.options = "hard"
-    startQuiz("hard");
 });
 
-var githubImg = document.querySelector(".github")
-var linkedinImg = document.querySelector(".linkedin")
-var playAgain = document.getElementById("play-again")
+// :)
 
-githubImg.onclick = () =>{
-    window.location.href = "https://github.com/KishoreGhost"
-}
 
-linkedinImg.onclick = () =>{
-    window.location.href = ""
-}
 
-playAgain.addEventListener("click",()=>{
-    window.location.reload()
-    console.log("hello")
-})
